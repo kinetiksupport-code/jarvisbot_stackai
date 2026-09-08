@@ -3,12 +3,12 @@ services:
     name: jarvis-openclaw
     runtime: docker
     plan: free
-    dockerCommand: node openclaw.mjs gateway --allow-unconfigured
+    dockerCommand: node openclaw.mjs gateway --allow-unconfigured --bind 0.0.0.0 --port 10000
     healthCheckPath: /startupz
     envVars:
       - key: OPENCLAW_GATEWAY_PORT
         value: "10000"
-      - key: OPENCLAW_GATEWAY_BIND
-        value: "lan"
+      - key: PORT
+        value: "10000"
       - key: OPENCLAW_GATEWAY_TOKEN
         sync: false
